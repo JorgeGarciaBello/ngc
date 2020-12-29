@@ -3,7 +3,7 @@ module db_data
     implicit none
     integer,parameter :: PD=3            ! PD is the number of period of data taking
     !integer,parameter :: NDIM=23        ! NDIM=23 is the number of pull parameters
-    integer,parameter :: NDIM=6          ! NDIM is the number of pull parameters
+    integer,parameter :: NDIM=6         ! NDIM is the number of pull parameters
     integer,parameter :: ADS=8           ! ADS is the number of detectors
     integer,parameter :: RCTS=6          ! RCTS is the number of reactors
     integer,parameter :: RIR=4           ! RIR is the number of radioactive isotopes in the reactors     

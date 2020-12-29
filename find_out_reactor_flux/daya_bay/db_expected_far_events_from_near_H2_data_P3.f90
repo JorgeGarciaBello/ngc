@@ -23,6 +23,8 @@ function db_expected_far_events_from_near_H2_data_P3(bin,t13,dmee,x)
         r2 = r2 + TP_d(3)*LT_d(PRD,3)*db_near_integral_per_detector_reactor_bin_H2(3,r,bin,t13,dmee) + &
                   TP_d(4)*LT_d(PRD,4)*db_near_integral_per_detector_reactor_bin_H2(4,r,bin,t13,dmee)
     enddo
-    db_expected_far_events_from_near_H2_data_P3 = 0.9*(r3/r2) - x(6)    
+    !db_expected_far_events_from_near_H2_data_P3 = 0.98*(1.0_dp+X(7))*(r3/r2) - x(6)    
+    db_expected_far_events_from_near_H2_data_P3 = 0.98*(r3/r2) - x(6)    
+    
     return
 end function db_expected_far_events_from_near_H2_data_P3

@@ -13,7 +13,6 @@ function f(x,n,myp,mdim)
     call db_chi_from_reactor_flux(t13,dmee,x,chi)
     f = chi
     !f = x(1)**2 + x(2)**2 + 5.0d0
-
     return
 end function f
 

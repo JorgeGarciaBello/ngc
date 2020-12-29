@@ -24,9 +24,9 @@ function db_expected_far_events_from_near_H1_data_P1(bin,t13,dmee,X)
     do r=1,RCTS
         r1 = r1 + TP_d(1)*LT_d(PRD,1)*db_near_integral_per_detector_reactor_bin_H1(1,r,bin,t13,dmee) + &
                   TP_d(2)*LT_d(PRD,2)*db_near_integral_per_detector_reactor_bin_H1(2,r,bin,t13,dmee)
-    enddo
-    !db_expected_far_events_from_near_H1_data_P1 = X(7)*(r3/r1) - Bkg_H3_6AD(bin)*X(2)
+    enddo    
+    !db_expected_far_events_from_near_H1_data_P1 = 0.978*(1.0_dp+X(7))*(r3/(r1)) - X(2)
     db_expected_far_events_from_near_H1_data_P1 = 0.978*(r3/(r1)) - X(2)
-    !db_expected_far_events_from_near_H1_data_P1 = (r3/r1)
+    
     return
 end function db_expected_far_events_from_near_H1_data_P1
