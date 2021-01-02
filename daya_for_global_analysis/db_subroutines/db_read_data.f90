@@ -338,7 +338,9 @@ subroutine db_read_data()
     !     Finding the reactor flux
     !
     !######################################    
-    bines=bines*1.01_dp
+    !bines=bines*0.98_dp
+    !bines=bines*0.94_dp
+    !bines=bines*0.98_dp
     !###########################
 
     print*, 'reading end ...'

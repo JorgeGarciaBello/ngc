@@ -4,7 +4,7 @@ subroutine db_chi_square_constant_reactor_flux_newoua(t13,dm,chi)
     implicit none
     real(dp) :: t13,dm,chi
     real(dp) :: YX
-    real(dp) :: X(10),W(10000),XX(2),RHOEND,RHOBEG
+    real(dp) :: X(NDIM),W(10000),XX(2),RHOEND,RHOBEG
     INTEGER  :: IPRINT,MAXFUN,N,NPT,I
     IPRINT=1
     MAXFUN=5000
