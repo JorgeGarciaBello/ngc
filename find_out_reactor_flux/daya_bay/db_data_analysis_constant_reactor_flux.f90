@@ -3,7 +3,7 @@ subroutine db_data_analysis_constant_reactor_flux()
     use db_data, only: NBIN
     use neu_osc_parameters, only: Y
     implicit none
-    integer, parameter :: n=15
+    integer, parameter :: n=51
     real(dp) :: dmee, t13, bkg_f, bkg_n, chi    
     real(dp) :: data(n,n,n)
     real(dp) :: dmee_shift, t13_shift, alpha_shift

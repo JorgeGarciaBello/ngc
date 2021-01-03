@@ -11,8 +11,8 @@ function db_far_integral_per_detector_reactor_bin_H3_P2(d,r,bin,t13,dmee,xy)
     real(dp) :: probability, crossSection, result    
     if((d>=5).or.(d<=8)) then
         a=bines(bin,1); b=bines(bin,2); 
-        a=a*0.985
-        b=b*0.985
+        a=a*0.990
+        b=b*0.990
         h=(b-a)/real(n)
         result=0.0d0
         do k=1,n

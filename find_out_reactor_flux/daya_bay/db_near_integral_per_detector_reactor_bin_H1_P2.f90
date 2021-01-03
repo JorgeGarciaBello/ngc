@@ -11,8 +11,8 @@ function db_near_integral_per_detector_reactor_bin_H1_P2(d,r,bin,t13,dmee,xy)
     real(dp) :: probability, crossSection, result    
     if ((d==1).or.(d==2)) then        
         a=bines(bin,1); b=bines(bin,2); 
-        a=a*0.985
-        b=b*0.985
+        a=a*0.990
+        b=b*0.990
         h=(b-a)/real(n)
         result=0.0d0
         do k=1,n
