@@ -1,9 +1,9 @@
       SUBROUTINE NEWUOB (N,NPT,X,RHOBEG,RHOEND,IPRINT,MAXFUN,XBASE,
-     1  XOPT,XNEW,XPT,FVAL,GQ,HQ,PQ,BMAT,ZMAT,NDIM,D,VLAG,W)
-      use reno_data, only:  reno_chi_from_newoua, alp      
+     1  XOPT,XNEW,XPT,FVAL,GQ,HQ,PQ,BMAT,ZMAT,NDIM,D,VLAG,W,XX,RMIN)      
       IMPLICIT REAL*8 (A-H,O-Z)
       DIMENSION X(*),XBASE(*),XOPT(*),XNEW(*),XPT(NPT,*),FVAL(*),
-     1  GQ(*),HQ(*),PQ(*),BMAT(NDIM,*),ZMAT(NPT,*),D(*),VLAG(*),W(*)
+     1  GQ(*),HQ(*),PQ(*),BMAT(NDIM,*),ZMAT(NPT,*),D(*),VLAG(*),
+     1  W(*),XX(*)
 C
 C     The arguments N, NPT, X, RHOBEG, RHOEND, IPRINT and MAXFUN are identical
 C       to the corresponding arguments in SUBROUTINE NEWUOA.
@@ -320,7 +320,7 @@ C
      1      ' called MAXFUN times.')
           GOTO 530
       END IF
-      CALL CALFUN (N,X,F)
+      CALL CALFUN (N,X,F,XX,RMIN)
       IF (IPRINT .EQ. 3) THEN
           PRINT 330, NF,F,(X(I),I=1,N)
   330      FORMAT (/4X,'Function number',I6,'    F =',1PD18.10,
@@ -553,7 +553,7 @@ C
 c          PRINT 550, NF
   550     FORMAT (/4X,'At the return from NEWUOA',5X,
      1      'Number of function values =',I6)
-          reno_chi_from_newoua = F          
+             RMIN = F          
 c          PRINT 520, F,(X(I),I=1,N)   ! Este print te lleva a la linea 536 en (520)
       END IF
       RETURN

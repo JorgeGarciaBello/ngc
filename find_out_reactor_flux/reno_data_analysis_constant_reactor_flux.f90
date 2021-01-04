@@ -3,7 +3,7 @@ subroutine reno_data_analysis_constant_reactor_flux()
     use reno_data, only: NBIN, alp
     use neu_osc_parameters, only: Y
     implicit none
-    integer, parameter :: n=500
+    integer, parameter :: n=1000
     real(dp) :: dmee, t13, alpha, bkg_f, bkg_n, chi
     !real(dp) :: data(n,n,n,n)
     real(dp) :: data(n,n,n)
@@ -17,7 +17,7 @@ subroutine reno_data_analysis_constant_reactor_flux()
     integer  :: i, j, k, l, u
     print*, 'Grid: ', n
 
-    t13_i=asin(sqrt(0.050))/2.0_dp
+    t13_i=asin(sqrt(0.055))/2.0_dp
     t13_f=asin(sqrt(0.125))/2.0_dp
 
     dmee_i=2.0d-3
@@ -49,9 +49,9 @@ subroutine reno_data_analysis_constant_reactor_flux()
     
 
     do i=1,n
+        !$omp parallel do private (t13,dmee,alpha,chi)
         do j=1,n
-            !!$omp parallel do private (t13,dmee,alpha,chi,Y)
-            !!$omp parallel do private (t13,dmee,alpha,chi)
+            !!$omp parallel do private (t13,dmee,alpha,chi,Y)            
             !do k=1,n                
                     t13   = t13_data(i)
                     dmee  = dmee_data(j)
@@ -78,8 +78,9 @@ subroutine reno_data_analysis_constant_reactor_flux()
                 !enddo
                 !!$omp end parallel do
             !enddo
-            !!$omp end parallel do
+            
         enddo
+        !$omp end parallel do
         print*,i
     enddo
     open(newunit=u, file='find_out_reactor_flux/only_data_sigma_as_exp_1.dat')

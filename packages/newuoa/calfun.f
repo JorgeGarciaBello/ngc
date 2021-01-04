@@ -1,4 +1,4 @@
-      SUBROUTINE CALFUN (N,X,F)
+      SUBROUTINE CALFUN (N,X,F,XX)
       use types    
       use neu_osc_parameters, only: Y  
       implicit none
@@ -7,13 +7,8 @@
       real(dp) :: F
       real(dp) :: reno_chi_from_near_constant_flux      
       real(dp) :: reno_chi_to_min,chi     
-      
-       
-       !F = reno_chi_from_near_constant_flux(X)
-       F = reno_chi_to_min(X)
-       !call reno_chi(Y(5),Y(2),0.0d0,X,chi)
-       !F = chi
-       
+      real(dp) :: XX(*)    
+       F = reno_chi_to_min(X,XX)
       RETURN
       END
 
