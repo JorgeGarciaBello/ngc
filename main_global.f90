@@ -23,9 +23,8 @@ program main_grid
     call readRENOData()    ! Lee datos de RENO    
 
 
-    !call reno_data_analysis_constant_reactor_flux()
-    !call reno_finding_out_the_reactor_flux()
-    call db_data_analysis_constant_reactor_flux()
+    call reno_data_analysis_constant_reactor_flux()
+    !call db_data_analysis_constant_reactor_flux()
 !    !######################################
 !    !
 !    !   Grid de sk-nh con Delta = 0

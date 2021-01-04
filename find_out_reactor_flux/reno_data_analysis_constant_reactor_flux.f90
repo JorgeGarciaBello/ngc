@@ -3,7 +3,7 @@ subroutine reno_data_analysis_constant_reactor_flux()
     use reno_data, only: NBIN, alp
     use neu_osc_parameters, only: Y
     implicit none
-    integer, parameter :: n=200
+    integer, parameter :: n=500
     real(dp) :: dmee, t13, alpha, bkg_f, bkg_n, chi
     !real(dp) :: data(n,n,n,n)
     real(dp) :: data(n,n,n)
@@ -17,8 +17,8 @@ subroutine reno_data_analysis_constant_reactor_flux()
     integer  :: i, j, k, l, u
     print*, 'Grid: ', n
 
-    t13_i=asin(sqrt(0.080))/2.0_dp
-    t13_f=asin(sqrt(0.10))/2.0_dp
+    t13_i=asin(sqrt(0.050))/2.0_dp
+    t13_f=asin(sqrt(0.125))/2.0_dp
 
     dmee_i=2.0d-3
     dmee_f=3.3d-3
